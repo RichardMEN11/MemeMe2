@@ -68,6 +68,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         imageViewController.delegate = self
         imageViewController.sourceType = .camera
+        memeViewController.contentMode = .scaleAspectFill
         self.present(imageViewController, animated: true, completion: nil)
         
     }
@@ -87,8 +88,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       textField.resignFirstResponder()
-        return false
+     
+        return true
     }
     
     
