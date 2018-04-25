@@ -47,9 +47,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <connections>
-                                    <action selector="topTextFieldPressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="16N-15-OWt"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-ad-SWK">
                                 <rect key="frame" x="16" y="452" width="343" height="30"/>
@@ -81,7 +78,7 @@
                         <outlet property="cameraButton" destination="kyd-oi-4z6" id="5hj-T6-ePh"/>
                         <outlet property="memeViewController" destination="HEq-NM-Cjd" id="TgK-ao-e98"/>
                         <outlet property="pickButton" destination="LRP-hp-zgD" id="0Un-uu-ZDZ"/>
-                        <outlet property="topTextField" destination="LNq-FI-shf" id="04h-oC-m0l"/>
+                        <outlet property="topTextField" destination="LNq-FI-shf" id="Oew-dH-Zrm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
