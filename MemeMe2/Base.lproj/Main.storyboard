@@ -27,21 +27,6 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-wp-lfn">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="Pick" width="233.5" id="LRP-hp-zgD">
-                                        <connections>
-                                            <action selector="pickButtonPressed:" destination="BYZ-38-t0r" id="MJp-4U-W9b"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="camera" id="kyd-oi-4z6">
-                                        <connections>
-                                            <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="T6k-AC-lZT"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNq-FI-shf">
                                 <rect key="frame" x="16" y="161" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -54,6 +39,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-wp-lfn">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Pick" width="239.5" id="LRP-hp-zgD">
+                                        <connections>
+                                            <action selector="pickButtonPressed:" destination="BYZ-38-t0r" id="MJp-4U-W9b"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="camera" id="kyd-oi-4z6">
+                                        <connections>
+                                            <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="T6k-AC-lZT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -74,11 +74,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bottomTextField" destination="bNN-ad-SWK" id="rz8-4S-QEf"/>
+                        <outlet property="bottomTextField" destination="bNN-ad-SWK" id="75u-oz-Usq"/>
                         <outlet property="cameraButton" destination="kyd-oi-4z6" id="5hj-T6-ePh"/>
-                        <outlet property="memeViewController" destination="HEq-NM-Cjd" id="TgK-ao-e98"/>
+                        <outlet property="memeViewController" destination="HEq-NM-Cjd" id="jGk-li-EjG"/>
                         <outlet property="pickButton" destination="LRP-hp-zgD" id="0Un-uu-ZDZ"/>
-                        <outlet property="topTextField" destination="LNq-FI-shf" id="Oew-dH-Zrm"/>
+                        <outlet property="topTextField" destination="LNq-FI-shf" id="Cgz-o5-xQp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

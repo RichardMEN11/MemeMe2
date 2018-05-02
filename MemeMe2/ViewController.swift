@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+
     
     let imageViewController = UIImagePickerController()
     
@@ -36,7 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedStringKey.strokeWidth.rawValue: 2]
+            NSAttributedStringKey.strokeWidth.rawValue: 3.0]
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -48,7 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
-        //topTextField.removeObserver(self, forKeyPath: "text")
+        topTextField.removeObserver(self, forKeyPath: "text")
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,9 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
-        
-        
-    }
+        }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
