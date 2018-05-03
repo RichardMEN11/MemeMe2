@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-xj-Ilv">
-                                <rect key="frame" x="16" y="199" width="343" height="245"/>
+                                <rect key="frame" x="16" y="180" width="343" height="294"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEq-NM-Cjd">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="245"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="294"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -43,41 +43,54 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNq-FI-shf">
-                                <rect key="frame" x="16" y="161" width="343" height="30"/>
+                                <rect key="frame" x="16" y="161" width="343" height="11"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-ad-SWK">
-                                <rect key="frame" x="16" y="452" width="343" height="30"/>
+                                <rect key="frame" x="16" y="482" width="343" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-01-vv7">
+                                <rect key="frame" x="316" y="20" width="40" height="30"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Eq-hg-aka"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="trailing" secondItem="bNN-ad-SWK" secondAttribute="trailing" id="0Id-Km-daf"/>
-                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="top" secondItem="LNq-FI-shf" secondAttribute="bottom" constant="8" symbolic="YES" id="3En-tS-xLf"/>
-                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="leading" secondItem="bNN-ad-SWK" secondAttribute="leading" id="DzN-1c-RvZ"/>
-                            <constraint firstItem="bNN-ad-SWK" firstAttribute="centerX" secondItem="uEi-wp-lfn" secondAttribute="centerX" id="LyI-p3-7Nq"/>
-                            <constraint firstItem="LNq-FI-shf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="P3M-uF-A3X"/>
-                            <constraint firstItem="uEi-wp-lfn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VtL-tW-4X5"/>
-                            <constraint firstItem="LNq-FI-shf" firstAttribute="trailing" secondItem="PQt-xj-Ilv" secondAttribute="trailing" id="bbL-5I-eaN"/>
-                            <constraint firstAttribute="trailing" secondItem="uEi-wp-lfn" secondAttribute="trailing" id="emZ-0w-hmr"/>
-                            <constraint firstAttribute="bottom" secondItem="bNN-ad-SWK" secondAttribute="bottom" constant="185" id="iP4-39-nfw"/>
-                            <constraint firstItem="uEi-wp-lfn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="isx-zn-rCX"/>
-                            <constraint firstItem="bNN-ad-SWK" firstAttribute="top" secondItem="PQt-xj-Ilv" secondAttribute="bottom" constant="8" symbolic="YES" id="p9F-P5-Kd2"/>
-                            <constraint firstItem="LNq-FI-shf" firstAttribute="leading" secondItem="PQt-xj-Ilv" secondAttribute="leading" id="v58-u9-Cdr"/>
-                            <constraint firstItem="LNq-FI-shf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="141" id="yur-ut-Jhu"/>
+                            <constraint firstAttribute="trailing" secondItem="uEi-wp-lfn" secondAttribute="trailing" id="0OP-ZM-0ih"/>
+                            <constraint firstAttribute="bottom" secondItem="bNN-ad-SWK" secondAttribute="bottom" constant="185" id="4cS-ZD-L3h"/>
+                            <constraint firstItem="gKR-01-vv7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="316" id="9Gs-KH-Uzs"/>
+                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="leading" secondItem="bNN-ad-SWK" secondAttribute="leading" id="CHN-NX-XVl"/>
+                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="trailing" secondItem="bNN-ad-SWK" secondAttribute="trailing" id="CNc-so-Lce"/>
+                            <constraint firstItem="LNq-FI-shf" firstAttribute="leading" secondItem="PQt-xj-Ilv" secondAttribute="leading" id="Hwt-JB-L1w"/>
+                            <constraint firstItem="bNN-ad-SWK" firstAttribute="top" secondItem="PQt-xj-Ilv" secondAttribute="bottom" constant="8" symbolic="YES" id="L21-v8-wTQ"/>
+                            <constraint firstItem="LNq-FI-shf" firstAttribute="trailing" secondItem="PQt-xj-Ilv" secondAttribute="trailing" id="S6w-Yp-3Vy"/>
+                            <constraint firstItem="bNN-ad-SWK" firstAttribute="centerX" secondItem="uEi-wp-lfn" secondAttribute="centerX" id="ccM-2i-g7T"/>
+                            <constraint firstItem="uEi-wp-lfn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ggn-g5-yR9"/>
+                            <constraint firstItem="gKR-01-vv7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gsb-L7-dbE"/>
+                            <constraint firstItem="LNq-FI-shf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="p9v-Tl-d5z"/>
+                            <constraint firstItem="uEi-wp-lfn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rYV-ZJ-8jo"/>
+                            <constraint firstItem="LNq-FI-shf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="141" id="unv-99-V6K"/>
+                            <constraint firstItem="PQt-xj-Ilv" firstAttribute="top" secondItem="LNq-FI-shf" secondAttribute="bottom" constant="8" symbolic="YES" id="x1t-wb-7Su"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="bNN-ad-SWK" id="rz8-4S-QEf"/>
+                        <outlet property="bottomToolbar" destination="uEi-wp-lfn" id="xUv-ew-hcT"/>
                         <outlet property="cameraButton" destination="kyd-oi-4z6" id="5hj-T6-ePh"/>
-                        <outlet property="memeViewController" destination="HEq-NM-Cjd" id="TgK-ao-e98"/>
+                        <outlet property="memeViewController" destination="HEq-NM-Cjd" id="1zn-em-NuJ"/>
                         <outlet property="pickButton" destination="LRP-hp-zgD" id="0Un-uu-ZDZ"/>
+                        <outlet property="shareButton" destination="gKR-01-vv7" id="XSa-Bj-63O"/>
                         <outlet property="topTextField" destination="LNq-FI-shf" id="Oew-dH-Zrm"/>
                     </connections>
                 </viewController>
