@@ -9,5 +9,7 @@
 import UIKit
 
 class MemeTableViewCell: UITableViewCell {
-
-    }
+    @IBOutlet weak var topText: UILabel!
+    @IBOutlet weak var bottomText: UILabel!
+    @IBOutlet weak var tableImageView: UIImageView!
+}

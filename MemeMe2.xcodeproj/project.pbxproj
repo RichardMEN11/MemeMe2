@@ -20,6 +20,7 @@
 		5096DC09209CA5E200BD9278 /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5096DC06209C9DD500BD9278 /* Impact.ttf */; };
 		50A7367920AB797A00CCBB2D /* MemeMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A7367820AB797A00CCBB2D /* MemeMeTableViewController.swift */; };
 		50AC6AA120CE538800D1F133 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC6AA020CE538800D1F133 /* CollectionViewCell.swift */; };
+		50AC6AA320CE71C400D1F133 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC6AA220CE71C400D1F133 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		5096DC06209C9DD500BD9278 /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		50A7367820AB797A00CCBB2D /* MemeMeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTableViewController.swift; sourceTree = "<group>"; };
 		50AC6AA020CE538800D1F133 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		50AC6AA220CE71C400D1F133 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				50496AEA208B3C7200D29A13 /* Info.plist */,
 				50496AE5208B3C7200D29A13 /* Assets.xcassets */,
 				5096DC08209C9E2500BD9278 /* Fonts */,
+				50AC6AA220CE71C400D1F133 /* DetailViewController.swift */,
 			);
 			path = MemeMe2;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				50094BA720BD94290079540B /* MemeTableViewCell.swift in Sources */,
 				50496AE1208B3C7100D29A13 /* ViewController.swift in Sources */,
 				50496ADF208B3C7100D29A13 /* AppDelegate.swift in Sources */,
+				50AC6AA320CE71C400D1F133 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

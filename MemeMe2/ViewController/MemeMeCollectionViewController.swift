@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class MemeMeCollectionViewController: UICollectionViewController {
     
+    //Adding the flow layout to the collection view
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -28,6 +31,13 @@ class MemeMeCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+        let space: CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,14 +55,16 @@ class MemeMeCollectionViewController: UICollectionViewController {
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
         // Set the name and image
-        cell.imageView.image = meme.memedImage
+        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.image = meme.memedImage
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        detailController.meme = memes[(indexPath as NSIndexPath).row]
-
-        navigationController!.pushViewController(detailController, animated: true)
+        let controller = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        controller.meme = memes[indexPath.row]
+        
+        navigationController!.pushViewController(controller, animated: true)
     }
 }
