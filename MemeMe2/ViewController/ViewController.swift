@@ -8,32 +8,35 @@
 
 import UIKit
 import Foundation
-
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
-
+    
+    var meme: Meme?
     @IBOutlet weak var memeViewController: UIImageView!
     @IBOutlet weak var pickButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet weak var shareButton: UIButton!
-    
+    @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     let imageViewController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.delegate = self
-        bottomTextField.delegate = self
         settingTheText(field: topTextField)
         settingTheText(field: bottomTextField)
         settingTheFunctionality()
-        
+        imageViewController.delegate = self
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func settingTheText(field: UITextField){
         //setting the text attributes
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         let memeTextAttributes:[String: Any] = [
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
@@ -49,7 +52,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         memeViewController.image = nil
-        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,35 +60,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func pickButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) == false {
-            return print("photo library not available")
-        }
-        imageViewController.delegate = self
-        imageViewController.sourceType = .photoLibrary
-        self.present(imageViewController, animated: true, completion: nil)
+        pick(sourceType: .photoLibrary)
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) == false {
-            return print("camera not available")
-        }
+        pick(sourceType: .camera)
+    }
+    
+    func pick(sourceType: UIImagePickerControllerSourceType){
         imageViewController.delegate = self
-        imageViewController.sourceType = .camera
+        imageViewController.sourceType = sourceType
         memeViewController.contentMode = .scaleAspectFit
         self.present(imageViewController, animated: true, completion: nil)
-        
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         memeViewController.image = chosenImage
         memeViewController.contentMode = .scaleAspectFit
-        self.shareButton.isEnabled = true
+
         dismiss(animated: true, completion: nil)
     }
     
@@ -132,8 +125,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder{
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        } else {
+
+        }
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
@@ -144,28 +140,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func keyboardWillHide(_ notification:Notification){
-        view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder{
+            view.frame.origin.y = 0}
+        else {
+            
+        }
     }
     
     func generateMemedImage() -> UIImage? {
         
-        bottomToolbar.isHidden = true
-        shareButton.isHidden = true
+        hideTheToolbar(isHidden: true)
         
-        // Render view to an image
+        // Render view to an imag
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        bottomToolbar.isHidden = false
-        shareButton.isHidden = false
+        hideTheToolbar(isHidden: false)
         
         return memedImage
     }
     
+    
+    func hideTheToolbar(isHidden: Bool){
+        bottomToolbar.isHidden = isHidden
+        topToolbar.isHidden = isHidden
+    }
+    
     func save(memedImage: UIImage){
-        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: memeViewController.image!, memedImage: memedImage)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: memeViewController.image!, memedImage: memedImage)
         
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -173,17 +177,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
        
     }
     
+    
     @IBAction func shareButtonPressed(_ sender: Any) {
-        //TODO: programm the right share function
         if let memedImage = generateMemedImage(){
             let av = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
-            av.completionWithItemsHandler = { (_, success, _, _) in
-                if success {
+            av.completionWithItemsHandler = {activity, completed, returned, error in
+                if completed {
                     self.save(memedImage: memedImage)
+                    self.dismiss(animated: true, completion: {})
                 }
             }
             present(av, animated: true, completion: nil)
         }
-}
-
+    }
+    
 }
