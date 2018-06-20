@@ -191,4 +191,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+
+    @IBAction func cancelPressed(sender: AnyObject) {
+       print("zzz")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+
+    
 }

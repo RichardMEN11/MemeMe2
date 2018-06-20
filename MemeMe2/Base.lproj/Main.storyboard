@@ -109,19 +109,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTj-dT-08C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTj-dT-08C">
                                 <rect key="frame" x="0.0" y="105" width="375" height="457"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="viM-cK-jT5">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viM-cK-jT5">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="Euj-0P-VXz"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lTj-dT-08C" firstAttribute="centerY" secondItem="Y3o-YV-1Br" secondAttribute="centerY" id="Ovn-C3-NBF"/>
+                            <constraint firstItem="lTj-dT-08C" firstAttribute="leading" secondItem="viM-cK-jT5" secondAttribute="leading" id="SCm-cn-ClQ"/>
+                            <constraint firstItem="xqB-9l-fIQ" firstAttribute="bottom" secondItem="lTj-dT-08C" secondAttribute="bottom" constant="105" id="UUg-iT-Zvf"/>
+                            <constraint firstAttribute="trailing" secondItem="lTj-dT-08C" secondAttribute="trailing" id="WRl-4n-NAj"/>
+                            <constraint firstItem="lTj-dT-08C" firstAttribute="leading" secondItem="Y3o-YV-1Br" secondAttribute="leading" id="YhJ-f2-Igk"/>
+                            <constraint firstItem="lTj-dT-08C" firstAttribute="top" secondItem="viM-cK-jT5" secondAttribute="bottom" constant="41" id="bFV-qU-gYv"/>
+                            <constraint firstItem="lTj-dT-08C" firstAttribute="trailing" secondItem="viM-cK-jT5" secondAttribute="trailing" id="lww-ku-oDj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xqB-9l-fIQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="TE3-ol-98m"/>
@@ -308,7 +315,12 @@
                                             <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="ZKA-nh-NaK"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bCp-71-F28"/>
+                                    <barButtonItem width="279" style="plain" systemItem="fixedSpace" id="1J7-Dq-aGe"/>
+                                    <barButtonItem systemItem="cancel" id="LAT-1H-0vq">
+                                        <connections>
+                                            <action selector="cancelPressedWithSender:" destination="BYZ-38-t0r" id="1cI-bY-Kzy"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem id="SrO-W8-aic"/>
                                 </items>
                             </toolbar>
@@ -356,6 +368,6 @@
         <image name="TabelView" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CdQ-j7-5ZT"/>
+        <segue reference="ACd-3t-Sj7"/>
     </inferredMetricsTieBreakers>
 </document>
