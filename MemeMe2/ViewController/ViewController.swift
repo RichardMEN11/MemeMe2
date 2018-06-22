@@ -55,6 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
         
@@ -127,9 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func keyboardWillShow(_ notification:Notification) {
         if bottomTextField.isFirstResponder{
             view.frame.origin.y -= getKeyboardHeight(notification)
-        } else {
-
-        }
+        } 
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
